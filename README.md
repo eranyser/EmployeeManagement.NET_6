@@ -27,3 +27,7 @@
 		|              |              |netcoreapp3.1|
 		|              |net           |net5.0|
 		|              |              |net6.0|
+
+## 02 WebAPI Basic Conceptes
+
+- [WebAPI Basic Concepts](slides/basic_concepts.md)
