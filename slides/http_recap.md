@@ -4,7 +4,8 @@
 - Summary of lecture from [HTL Leonding C# Course 2020/21](https://www.youtube.com/playlist?list=PLhGL9p3BWHwtHPWX8g7yJFQvICdNhFQV7)
   - Relevant Github is [htl-leo-csharp-4](https://github.com/rstropek/htl-leo-csharp-4)
   - [Recap Important Aspects Of HTTP](https://www.youtube.com/watch?v=ODfdeRUov4I&list=PLhGL9p3BWHwtHPWX8g7yJFQvICdNhFQV7&index=29)
-- Web APIs are **APIs that are based on the HTTP protocol** there are other kinds of RPC like:
+- Web APIs are **APIs that are based on the HTTP protocol** [What is HTTP Protocol?](https://www.youtube.com/watch?v=qBqxYZmwqPY&list=PLhGL9p3BWHwtlclHZ4KMuJGtiI5hj7dWG)
+- There are other kinds of RPC like:
   - gRPC
   - WebSockets
   - SignalR
