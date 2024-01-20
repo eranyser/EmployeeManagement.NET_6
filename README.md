@@ -30,4 +30,5 @@
 
 ## 02 WebAPI Basic Conceptes
 
+- [Importand Aspects of HTTP](slides/http_recap.md)
 - [WebAPI Basic Concepts](slides/basic_concepts.md)
