@@ -1,5 +1,7 @@
 # Web API Basic Concepts
 
+[Bibliography](Bibliography.md)
+
 - Assume we want to get Employee details from Employees database table and display on the web page as shown below:
   ![Employee Data](../tutorial_images/employee_data.png)
 - To represent the employee data, we will create the following Employee class:
