@@ -42,16 +42,17 @@
       }
   }
   ```
- - Working against the interface allows us to use [dependency injection](dependency_injection.md) which in turns make our application flexible an easily unit testable. 
+ - Working against the interface allows us to use [dependency injection](dependency_injection.md) which in turns make our application flexible an easily unit testable.
+ - We will user *dependency injection* in our *Controller* but first let's understand [What is a Controller](controller.md)
  - Lets create our first Controller - EmployeeController, and use our IEmployeeRepository in this controller.
    - Create a constructor and inject the IEmployeeRepository in it.
    - Store it in a private field.
    - Use it in the *GetEmployeeById* method and call *IEmployeeRepository's GetEmployeeById* method.
     ```c#
-  	[ApiController]
-	[Route("[controller]")]
-	public class EmployeeController : ControllerBase
-	{
+    [ApiController]
+	  [Route("[controller]")]
+	  public class EmployeeController : ControllerBase
+	  {
         
         IEmployeeRepository _employeeRepository;
         public EmployeeController(IEmployeeRepository employeeRepository)
