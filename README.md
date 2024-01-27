@@ -32,3 +32,4 @@
 
 - [Importand Aspects of HTTP](slides/http_recap.md)
 - [WebAPI Basic Concepts](slides/basic_concepts.md)
+- [Depandancy Injection](slides/dependency_injection.md)

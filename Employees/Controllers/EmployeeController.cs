@@ -8,7 +8,7 @@ namespace Employees.Controllers
 	public class EmployeeController : ControllerBase
 	{
         
-        IEmployeeRepository _employeeRepository;
+        private readonly IEmployeeRepository _employeeRepository;
         public EmployeeController(IEmployeeRepository employeeRepository)
         {
             _employeeRepository = employeeRepository;
