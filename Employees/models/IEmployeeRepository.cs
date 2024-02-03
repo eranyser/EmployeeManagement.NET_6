@@ -4,5 +4,7 @@
     {
         IEnumerable<Employee> GetAllEmployees();
         Employee? GetEmployeeById(int id);
+
+        Employee? AddEmployee(Employee newEmployee);
     }
 }

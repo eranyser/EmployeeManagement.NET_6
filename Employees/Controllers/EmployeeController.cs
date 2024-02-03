@@ -22,16 +22,21 @@ namespace Employees.Controllers
 
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("{id:int}", Name = "GetSpecificEmployee")]
         public IActionResult GetEmployeeById(int id)
         {
             Employee? employee = _employeeRepository.GetEmployeeById(id);
             if (employee != null)
                 return Ok(employee);
             else
-                return BadRequest("No Such Id");
+                return BadRequest($"No Employee with  Id: {id}");
         }
 
-
+        [HttpPost]
+        public IActionResult AddEmployee([FromBody] Employee newEmployee) 
+        {
+            Employee addedEmployee = _employeeRepository.AddEmployee(newEmployee);
+            return CreatedAtRoute("GetSpecificEmployee", new { Id = addedEmployee.Id }, addedEmployee);
+        }
     }
 }

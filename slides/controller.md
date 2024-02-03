@@ -25,7 +25,7 @@
     - **[Rout("[action]")]**  - Same we can specify the action keyword for the methods. 
     - **[Route("[controller]/[action]")]** - or we can combine theme togeter
  
-- 52:08 second video.
+- [Pay attention to diference between Attributes and Filters](AttributesVSFilters.md)
 - Lets add some APIs:
   - We want to make the Employee's list availabe to the WebAPI, so we add a function *GetAllEmployees*, adding the attribute **[HttpGet]**, and return the http status code, **Ok** in our case, and give it the content of the result.
   - The return type is *IActionResult*. which is encapsulation of status code and content.
@@ -72,9 +72,25 @@
             return BadRequest("No Such Id");
     }
     ```
+    - In the **Route** attribute there is a  curly braces. Theas means that inside of it, it is a variable that refers the first parameter of the method. We will talk about it in the [routing](routing.md) page.  
+  
+  - Now lets add the method *AddEmployee*
+    ```c#
+    [HttpPost]
+    public IActionResult AddEmployee([FromBody] Employee newEmployee) 
+    {
+        Employee addedEmployee = _employeeRepository.AddEmployee(newEmployee);
+        return CreatedAtRoute("GetSpecificEmployee", new { Id = addedEmployee.Id }, addedEmployee);
+    }
+    ```
+  - We set the **[HttpPost]** attribute, it is an *insert*. We add an **Employee**
+  - We also *decorate* the parameter with attribute **[FromBody]**. This means, takes the new Employee item from the **HTTP Body**
+  - We return value using the *CreatedAtRoute* mehtod. It is good practice to return the *location* header, so we will be able to get the newly created Emloyee. The first paremeter to the method is teh *Name* atribute at the method that brings the item, so we have to add *Name* to the *GetEmployeeById* method.
+  - We actually say, there is a **Route**, named **GetSpecificEmployee** that we can query the new added item, giving its index for this route. The last parameter will be returned as a response body. Usually, it is just the value of newly created resource.
+  - **More reading and explanations:** [Created, CreatedAtAction, CreatedAtRoute Methods In ASP.NET Core Explained With Examples](https://ochzhen.com/blog/created-createdataction-createdatroute-methods-explained-aspnet-core)
 
-    - 56:54 second video.
-  - 
+  Second movie 1:08
+
 [Back to Table of Content](../README.md#02-webapi-basic-conceptes)
 **Bibliography:**
 
@@ -82,3 +98,6 @@
 [![Watch the video](https://i.ytimg.com/vi/-O0UYM0ZIIc/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDbNRYNMEmt4sGKqGGZJGzFsrrmNQ)](https://www.youtube.com/watch?v=-O0UYM0ZIIc&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=20&pp=iAQB)
 
 [![Watch the video](https://i.ytimg.com/vi/SpXNoqPJDwU/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLAnVeJkF4Vor0M6vFNAKMGSiPBG6Q)](https://www.youtube.com/watch?v=SpXNoqPJDwU&list=PLhGL9p3BWHwtV_hn6H_uZ4vrFE3F7mY8a&index=2&t=2725s&pp=iAQB)
+- The sides for this are taken from the mobile course:
+  - [htl-mobile-computing-5](https://github.com/rstropek/htl-mobile-computing-5) given in 2019/20, [slides](https://htl-mobile-computing-5.azurewebsites.net/#/)
+  - [htl-mobile-computing](https://github.com/rstropek/htl-mobile-computing) given in 2018/19, [slides](https://rstropek.github.io/htl-mobile-computing/#/)

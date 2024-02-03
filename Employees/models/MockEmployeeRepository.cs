@@ -28,5 +28,14 @@
             Employee? employee = _employeeRepository.FirstOrDefault(e => e.Id == Id);
             return employee;
         }
+
+        public Employee? AddEmployee(Employee newEmployee)
+        {
+            newEmployee.Id = _employeeRepository.Max(e => e.Id) + 1;
+            _employeeRepository.Add(newEmployee);
+            return GetEmployeeById(newEmployee.Id);
+        }
     }
+
+
 }
