@@ -12,9 +12,20 @@
                 new Employee() { Id = 3, Name = "Sam", Department = "IT", Email = "sam@pragimtech.com" },
             };
         }
-        public Employee GetEmployeeById(int Id)
+
+        public IEnumerable<Employee> GetAllEmployees()
         {
-            Employee employee =  _employeeRepository.FirstOrDefault(e => e.Id == Id);
+            return _employeeRepository;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>null if not found, otherwise the corresponding Employee according it Id.</returns>
+        public Employee? GetEmployeeById(int Id)
+        {
+            Employee? employee = _employeeRepository.FirstOrDefault(e => e.Id == Id);
             return employee;
         }
     }

@@ -25,8 +25,57 @@
     - **[Rout("[action]")]**  - Same we can specify the action keyword for the methods. 
     - **[Route("[controller]/[action]")]** - or we can combine theme togeter
  
-52:08 second video.
+- 52:08 second video.
+- Lets add some APIs:
+  - We want to make the Employee's list availabe to the WebAPI, so we add a function *GetAllEmployees*, adding the attribute **[HttpGet]**, and return the http status code, **Ok** in our case, and give it the content of the result.
+  - The return type is *IActionResult*. which is encapsulation of status code and content.
+  - Of course we've added to the EmpolyeeRepository interface and implementation the corresponding metod.
+  ```c#
+  namespace Employees.Controllers
+  {
+      [ApiController]
+      [Route("[controller]")]
+      public class EmployeeController : ControllerBase
+      {
+          private readonly IEmployeeRepository _employeeRepository;
+          public EmployeeController(IEmployeeRepository employeeRepository)
+          {
+              _employeeRepository = employeeRepository;
+          }
 
+          [HttpGet]
+          public IActionResult GetAllEmployees()
+          {
+              return Ok(_employeeRepository.GetAllEmployees());
+          }
+
+          [HttpGet]
+          [Route("{id:int}")]
+          public Employee GetEmployeeById(int id)
+          {
+              return _employeeRepository.GetEmployeeById(id);
+          }
+      }
+  }
+  ```
+  - To get *EmployeeList* according current *routing rules* we use: https://localhost:7156/employee
+  - We already added the method *GetEmployeeById*, lets refine it with some validation checks, if null is returned from the list the API returns BadRequest.
+    ```c#
+    [HttpGet]
+    [Route("{id:int}")]
+    public IActionResult GetEmployeeById(int id)
+    {
+        Employee? employee = _employeeRepository.GetEmployeeById(id);
+        if (employee != null)
+            return Ok(employee);
+        else
+            return BadRequest("No Such Id");
+    }
+    ```
+
+    - 56:54 second video.
+  - 
+[Back to Table of Content](../README.md#02-webapi-basic-conceptes)
 **Bibliography:**
 
 

@@ -3,22 +3,35 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Employees.Controllers
 {
-	[ApiController]
-	[Route("[controller]")]
-	public class EmployeeController : ControllerBase
-	{
-        
+    [ApiController]
+    [Route("[controller]")]
+    public class EmployeeController : ControllerBase
+    {
+
         private readonly IEmployeeRepository _employeeRepository;
         public EmployeeController(IEmployeeRepository employeeRepository)
         {
             _employeeRepository = employeeRepository;
         }
-        
+
+        [HttpGet]
+        public IActionResult GetAllEmployees()
+        {
+            return Ok(_employeeRepository.GetAllEmployees());
+        }
+
+
         [HttpGet]
         [Route("{id:int}")]
-        public Employee GetEmployeeById(int id) 
+        public IActionResult GetEmployeeById(int id)
         {
-            return _employeeRepository.GetEmployeeById(id);
+            Employee? employee = _employeeRepository.GetEmployeeById(id);
+            if (employee != null)
+                return Ok(employee);
+            else
+                return BadRequest("No Such Id");
         }
+
+
     }
 }

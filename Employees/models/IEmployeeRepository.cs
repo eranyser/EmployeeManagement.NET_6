@@ -2,6 +2,7 @@
 {
     public interface IEmployeeRepository
     {
-        Employee GetEmployeeById(int id);
+        IEnumerable<Employee> GetAllEmployees();
+        Employee? GetEmployeeById(int id);
     }
 }
