@@ -34,5 +34,6 @@
 - [WebAPI Basic Concepts](slides/basic_concepts.md)
 - [Depandancy Injection](slides/dependency_injection.md)
 - [Controllers](slides/controller.md)
+- [Model Bindings](slides/model_bindings.md)
 - [Routing](slides/routing.md)
   - [Attribute vs Flters](slides/AttributesVSFilters.md)
