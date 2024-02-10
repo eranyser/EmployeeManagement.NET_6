@@ -15,6 +15,8 @@ namespace Employees.Controllers
         }
 
         [HttpGet]
+        [Route("")]
+        [Route("all")]
         public IActionResult GetAllEmployees()
         {
             return Ok(_employeeRepository.GetAllEmployees());
@@ -37,6 +39,31 @@ namespace Employees.Controllers
         {
             Employee addedEmployee = _employeeRepository.AddEmployee(newEmployee);
             return CreatedAtRoute("GetSpecificEmployee", new { Id = addedEmployee.Id }, addedEmployee);
+        }
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public IActionResult UpdateEmpoyee(int id, [FromBody] Employee updatedEmployee)
+        {
+            Employee? employee = _employeeRepository.UpdateEmploeye(id, updatedEmployee);
+            if (employee != null)
+                return Ok(employee);
+            else
+                return BadRequest($"No Employee with Id: {id}");
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IActionResult DeleteEmployee(int id)
+        {
+            if (_employeeRepository.DeleteEmployee(id))
+            {
+                return NoContent();
+            }
+            else
+            {
+                return BadRequest($"No Employee with Id: {id}");
+            }
         }
     }
 }
