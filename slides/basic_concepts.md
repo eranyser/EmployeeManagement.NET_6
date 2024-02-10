@@ -1,7 +1,5 @@
 # Web API Basic Concepts
 
-[Bibliography](Bibliography.md)
-
 - Assume we want to get Employee details from Employees database table and display on the web page as shown below:
   ![Employee Data](../tutorial_images/employee_data.png)
 - To represent the employee data, we will create the following Employee class:
@@ -69,6 +67,11 @@
     }
     ```
 
+**Bibliography:**
 
+[Taken from: ASP.NET core tutorial for beginners](https://www.youtube.com/playlist?list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU)
+
+[Model in ASP NET Core MVC](https://www.youtube.com/watch?v=KXPbJ9I4ce0&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=19)
+[![Watch the video](https://i.ytimg.com/vi/KXPbJ9I4ce0/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLCtuSmyaN4Whi6mfmBgxxVW4salXw)](https://www.youtube.com/watch?v=KXPbJ9I4ce0&list=PL6n9fhu94yhVkdrusLaQsfERmL_Jh4XmU&index=18)
 
 

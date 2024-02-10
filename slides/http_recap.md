@@ -1,9 +1,6 @@
 
 # Importand Aspects of HTTP
 
-- Summary of lecture from [HTL Leonding C# Course 2020/21](https://www.youtube.com/playlist?list=PLhGL9p3BWHwtHPWX8g7yJFQvICdNhFQV7)
-  - Relevant Github is [htl-leo-csharp-4](https://github.com/rstropek/htl-leo-csharp-4)
-  - [Recap Important Aspects Of HTTP](https://www.youtube.com/watch?v=ODfdeRUov4I&list=PLhGL9p3BWHwtHPWX8g7yJFQvICdNhFQV7&index=29)
 - Web APIs are **APIs that are based on the HTTP protocol** [What is HTTP Protocol?](https://www.youtube.com/watch?v=qBqxYZmwqPY&list=PLhGL9p3BWHwtlclHZ4KMuJGtiI5hj7dWG)
 - There are other kinds of RPC like:
   - gRPC
@@ -61,3 +58,11 @@
       - Cookies - are sent from the server to the client, and the client, when he visits the same server again, sends those cookies, (which originally recieved from the server), back to the server. In this way the server can related different requests to the same origin, and round trip some data.
       - In Web APIs, Cookies are often used for authentication. After login with user/password, the server set an encrypted cookie in the response header, and when the client calls the next API, the brouser will send the cookie with the identity information to the server and with that the server knows who the user is. The cookie of cours is digitaly signed so it is secured.
       - Client can also send Query Parameters after a **'?'** and those Query Parmas can be separated by **'&'** sign.
+
+**Bibliography:**
+
+[Recap Important Aspects Of HTTP](https://www.youtube.com/watch?v=ODfdeRUov4I&list=PLhGL9p3BWHwtHPWX8g7yJFQvICdNhFQV7&index=29)
+[![Watch the video](https://i.ytimg.com/vi/ODfdeRUov4I/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDp-eP_wuIqGCTiGv_4oC388i2atg)](https://www.youtube.com/watch?v=ODfdeRUov4I&list=PLhGL9p3BWHwtHPWX8g7yJFQvICdNhFQV7&index=28&t=13s&pp=iAQB)
+
+Summary of lecture from [HTL Leonding C# Course 2020/21](https://www.youtube.com/playlist?list=PLhGL9p3BWHwtHPWX8g7yJFQvICdNhFQV7)
+- Relevant Github is [htl-leo-csharp-4](https://github.com/rstropek/htl-leo-csharp-4)
