@@ -1,0 +1,41 @@
+﻿@Employees_HostAddress = https://localhost:7156
+
+GET {{Employees_HostAddress}}/employee
+Accept: application/json
+
+###
+
+GET {{Employees_HostAddress}}/employee/all
+Accept: application/json
+
+###
+
+POST {{Employees_HostAddress}}/employee
+Content-Type: application/json
+
+{
+    "name":"Eran",
+    "email":"eran.weiser@gmail.com",
+    "department":"R&D"
+}
+
+###
+
+GET {{Employees_HostAddress}}/employee/2
+Accept: application/json
+
+###
+
+DELETE {{Employees_HostAddress}}/employee/4
+
+###
+
+PUT {{Employees_HostAddress}}/employee/5
+Content-Type: application/json
+
+{
+    "email":"eran.weiser@philips.com"
+}
+
+
+###

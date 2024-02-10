@@ -83,13 +83,61 @@
         return CreatedAtRoute("GetSpecificEmployee", new { Id = addedEmployee.Id }, addedEmployee);
     }
     ```
-  - We set the **[HttpPost]** attribute, it is an *insert*. We add an **Employee**
-  - We also *decorate* the parameter with attribute **[FromBody]**. This means, takes the new Employee item from the **HTTP Body**
-  - We return value using the *CreatedAtRoute* mehtod. It is good practice to return the *location* header, so we will be able to get the newly created Emloyee. The first paremeter to the method is teh *Name* atribute at the method that brings the item, so we have to add *Name* to the *GetEmployeeById* method.
-  - We actually say, there is a **Route**, named **GetSpecificEmployee** that we can query the new added item, giving its index for this route. The last parameter will be returned as a response body. Usually, it is just the value of newly created resource.
-  - **More reading and explanations:** [Created, CreatedAtAction, CreatedAtRoute Methods In ASP.NET Core Explained With Examples](https://ochzhen.com/blog/created-createdataction-createdatroute-methods-explained-aspnet-core)
+    - We set the **[HttpPost]** attribute, it is an *insert*. We add an **Employee**
+    - We also *decorate* the parameter with attribute **[FromBody]**. This means, takes the new Employee item from the **HTTP Body**
+    - We return value using the *CreatedAtRoute* mehtod. It is good practice to return the *location* header, so we will be able to get the newly created Emloyee. The first paremeter to the method is the *Name* atribute at the method that brings the item, so we have to add *Name* to the *GetEmployeeById* method.
+    - We actually say, there is a **Route**, named **GetSpecificEmployee** that we can query the new added item, giving its index for this route. The last parameter will be returned as a response body. Usually, it is just the value of newly created resource.
+    - **More reading and explanations:** [Created, CreatedAtAction, CreatedAtRoute Methods In ASP.NET Core Explained With Examples](https://ochzhen.com/blog/created-createdataction-createdatroute-methods-explained-aspnet-core)  
 
-  Second movie 1:08
+  - Lets add the *UpdateEmployee* method
+    ```c#
+    [HttpPut]
+    [Route("{id:int}")]
+    public IActionResult UpdateEmpoyee(int id, [FromBody] Employee updatedEmployee)
+    {
+        Employee? employee = _employeeRepository.UpdateEmploeye(id, updatedEmployee);
+        if (employee != null)
+            return Ok(employee);
+        else
+            return BadRequest($"No Employee with  Id: {id}");
+
+    }
+    ```
+    - In this method we use the **[HttpPut]** attribute
+    - We are combining teh *Route* parameter, **id**, with the data from **[FromBody]** attribute. This is because we want to update specific item.
+  - *DeleteEmployee* will look like this:
+    ```c#
+    [HttpDelete]
+    [Route("{id:int}")]
+    public IActionResult DeleteEmployee(int id)
+    {
+        if (_employeeRepository.DeleteEmployee(id))
+        {
+            return NoContent();
+        }
+        else
+        {
+            return BadRequest($"No Employee with Id: {id}");
+        }
+    }
+    ```
+  - As we saw the **[FromBody]** attribute that tells .net that the data comes from the body of the requeset, we can set the attribute **[From Query]** to indicate, for a parameter, that it comes from the query string.
+ - As you can see, the CRUD API we created, can be distinguished according the *VERB* we send and the paremeter:
+     ![Swagger API](../tutorial_images/swagger_api.png)
+    - Get the list of Employees uses **GET https://localhost:7156/employee** wheras update employee uses **POST https://localhost:7156/employee**. Both URLs are the same.
+    - We can add a route with name that implies the operation. If we want the default route to remain we need to add **[Route("")]**
+      ```c#
+      [HttpGet] 
+      [Route("")]
+      [Route("all")]
+      public IActionResult GetAllEmployees()
+      {
+          return Ok(_employeeRepository.GetAllEmployees());
+      } 
+      ```
+    - Now we can get the employee list with the following calls:
+      - **GET https://localhost:7156/employee**
+      - **GET https://localhost:7156/employee/all**
 
 [Back to Table of Content](../README.md#02-webapi-basic-conceptes)
 **Bibliography:**
