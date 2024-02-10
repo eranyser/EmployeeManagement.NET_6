@@ -62,6 +62,7 @@
 **Bibliography:**
 
 [Recap Important Aspects Of HTTP](https://www.youtube.com/watch?v=ODfdeRUov4I&list=PLhGL9p3BWHwtHPWX8g7yJFQvICdNhFQV7&index=29)
+
 [![Watch the video](https://i.ytimg.com/vi/ODfdeRUov4I/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLDp-eP_wuIqGCTiGv_4oC388i2atg)](https://www.youtube.com/watch?v=ODfdeRUov4I&list=PLhGL9p3BWHwtHPWX8g7yJFQvICdNhFQV7&index=28&t=13s&pp=iAQB)
 
 Summary of lecture from [HTL Leonding C# Course 2020/21](https://www.youtube.com/playlist?list=PLhGL9p3BWHwtHPWX8g7yJFQvICdNhFQV7)
