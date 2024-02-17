@@ -14,10 +14,19 @@ POST {{Employees_HostAddress}}/employee
 Content-Type: application/json
 
 {
-    "name":"Eran",
+    "EmployeeName":"Eran",
     "email":"eran.weiser@gmail.com",
     "department":"R&D"
 }
+
+
+###
+
+POST {{Employees_HostAddress}}/employee/submit
+Content-Type: application/x-www-form-urlencoded
+
+Name=Gershon&Email=gershon@algotec.co.il&Department=R&D
+
 
 ###
 
