@@ -29,6 +29,7 @@ namespace Employees
 
             app.UseAuthorization();
 
+            app.UseFileServer();
 
             app.MapControllers();
 

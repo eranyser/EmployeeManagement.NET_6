@@ -1,5 +1,6 @@
 using Employees.models;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace Employees.Controllers
 {
@@ -35,7 +36,19 @@ namespace Employees.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddEmployee([FromBody] Employee newEmployee) 
+        [Route("submit")]
+        public IActionResult AddEmployeeSubmit([FromForm] string Name, [FromForm] string Email, [FromForm] string Department)
+        {
+            Employee newEmployee = new Employee() { Name = Name, Email = Email, Department = Department };
+            Employee addedEmployee = _employeeRepository.AddEmployee(newEmployee);
+            return CreatedAtRoute("GetSpecificEmployee", new { Id = addedEmployee.Id }, addedEmployee);
+
+            //return Ok($"Name={Name}, Email={Email}, Department={Department}");
+        }
+
+
+        [HttpPost]
+        public IActionResult AddEmployeeJson([FromBody] Employee newEmployee) 
         {
             Employee addedEmployee = _employeeRepository.AddEmployee(newEmployee);
             return CreatedAtRoute("GetSpecificEmployee", new { Id = addedEmployee.Id }, addedEmployee);

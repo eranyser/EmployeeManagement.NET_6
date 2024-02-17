@@ -37,3 +37,4 @@
 - [Model Bindings](slides/model_bindings.md)
 - [Routing](slides/routing.md)
   - [Attribute vs Flters](slides/AttributesVSFilters.md)
+- [Creating a simple Form](slides/html_form.md)
