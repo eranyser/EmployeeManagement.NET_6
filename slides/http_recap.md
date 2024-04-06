@@ -23,7 +23,7 @@
     - and also here: [HTTP Cats](https://http.cat/)
     - and here: [Http Status Dogs](https://httpstatusdogs.com/)
     - Few issues regarding stauts codes: 
-      - The fist digit of a status code indicates teh general type of response: 
+      - The fist digit of a status code indicates the general type of response: 
         - 1xx informational response – the request was received, continuing process
         - 2xx successful – the request was successfully received, understood, and accepted
         - 3xx redirection – further action needs to be taken in order to complete the request, (things you are looking for in no longer presented here, please go there where you can find it)
