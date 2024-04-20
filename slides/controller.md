@@ -104,7 +104,7 @@
     }
     ```
     - In this method we use the **[HttpPut]** attribute
-    - We are combining teh *Route* parameter, **id**, with the data from **[FromBody]** attribute. This is because we want to update specific item.
+    - We are combining the *Route* parameter, **id**, with the data from **[FromBody]** attribute. This is because we want to update specific item.
   - *DeleteEmployee* will look like this:
     ```c#
     [HttpDelete]
