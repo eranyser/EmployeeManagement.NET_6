@@ -23,7 +23,7 @@
     }
     ```
  - This is called **constructor injection**, as we are using the constructor to inject the dependency.
- - Notice, we are assigning the injected dependency to a read-only field. This is a good practice as it prevents accidentally assigning another value to it inside a method.
+ - Notice, we are assigning the injected dependency to a **read-only field**. This is a good practice as it prevents accidentally assigning another value to it inside a method.
  - Currently we gets an error since the ASP.NET dependency injection container does not know which object instance to provide if someone requests an object that implements IEmployeeRepository
  - EmployeeRepository may have several implementations. At the moment in our project we only have one implementation and that is MockEmployeeRepository
  - As the name implies, MockEmployeeRepository works with the in-memory employee mock data.
