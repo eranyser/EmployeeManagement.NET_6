@@ -26,6 +26,7 @@
     - **[Route("[controller]/[action]")]** - or we can combine theme togeter
  
 - [Pay attention to diference between Attributes and Filters](AttributesVSFilters.md)
+- Before continue adding new APIs, there is an article related to [Choosing between controller-based APIs and minimal APIs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/apis?view=aspnetcore-8.0)
 - Lets add some APIs:
   - We want to make the Employee's list availabe to the WebAPI, so we add a function *GetAllEmployees*, adding the attribute **[HttpGet]**, and return the http status code, **Ok** in our case, and give it the content of the result.
   - The return type is *IActionResult*. which is encapsulation of status code and content.
