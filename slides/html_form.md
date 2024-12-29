@@ -38,6 +38,16 @@
         return CreatedAtRoute("GetSpecificEmployee", new { Id = addedEmployee.Id }, addedEmployee);
   }
   ```
+ - We can also use the DTO *Employee* Object with the attribute *[FromForm]*, and .NET model binding will enter the right properties, according their names to the Object:
+   ```c#
+   [HttpPost]
+   [Route("submit")]
+   public IActionResult AddEmployeeSubmit([FromForm] Employee newEmployee)
+   {
+       Employee addedEmployee = _employeeRepository.AddEmployee(newEmployee);
+       return CreatedAtRoute("GetSpecificEmployee", new { Id = addedEmployee.Id }, addedEmployee);
+   }
+   ```
  - In order to send Json format we need javascript code. We can do it with original old **XMLHttpRequest (XHR)**, or modern **fetch** method.
  - We will add two more buttons in our html:
    - First button will activate fetch command
