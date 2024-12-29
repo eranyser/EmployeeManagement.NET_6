@@ -37,9 +37,10 @@ namespace Employees.Controllers
 
         [HttpPost]
         [Route("submit")]
-        public IActionResult AddEmployeeSubmit([FromForm] string Name, [FromForm] string Email, [FromForm] string Department)
+        //public IActionResult AddEmployeeSubmit([FromForm] string Name, [FromForm] string Email, [FromForm] string Department)
+        public IActionResult AddEmployeeSubmit([FromForm] Employee newEmployee)
         {
-            Employee newEmployee = new Employee() { Name = Name, Email = Email, Department = Department };
+            //Employee newEmployee = new Employee() { Name = Name, Email = Email, Department = Department };
             Employee addedEmployee = _employeeRepository.AddEmployee(newEmployee);
             return CreatedAtRoute("GetSpecificEmployee", new { Id = addedEmployee.Id }, addedEmployee);
 
