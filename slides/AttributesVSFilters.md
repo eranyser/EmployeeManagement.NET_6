@@ -1,4 +1,4 @@
-# What is the difference between Attribute and Filter in .net WebAPI
+~~# What is the difference between Attribute and Filter in .net WebAPI~~
 
 [From CahtGPT](https://chat.openai.com/c/7d40e0ed-be4f-4f0c-89a6-32a213ae2fc5)  
 
